@@ -1,0 +1,468 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+section .row
+{
+    position: relative;
+    top: -37%;
+    left: -10%;
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    font-size: 65px;
+    transform: rotate(-25deg);
+}
+
+i
+{
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 5px;
+    transition: 1.2s;
+    user-select: none;
+    cursor: default;
+}
+
+i:hover
+{
+    color: rgb(245, 76, 211);
+    text-shadow: 0 0 120px rgb(255, 73, 73);
+    transition: 0s;
+}
+
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #020202;
+}
+
+.GiftContaner
+{
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.GiftContaner.active 
+{
+    animation: Vibration 1.5s ease forwards;
+}
+@keyframes Vibration {
+    0%
+    {
+        transform: scale(1,1);
+    }
+    25%
+    {
+        transform: scale(0.95,1.05);
+    }
+    50%
+    {
+        transform: scale(1.1,0.9);
+    }
+    75%
+    {
+        transform: scale(0.9,1.1);
+    }
+    100%
+    {
+        transform: scale(1,1);
+    }
+}
+
+.GiftContaner .GiftBox
+{
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    animation: Bounce 4s ease-in-out infinite;
+}
+
+@keyframes Bounce {
+    0%
+    {
+        transform: translateY(-24px) scale(1,1);
+    }
+    25%
+    {
+        transform: translateY(-12px) scale(1.12, 0.89);
+    }
+    50%
+    {
+        transform: translateY(0px) scale(0.92, 1.1);
+    }
+    75%
+    {
+        transform: translateY(-12px) scale(1.05, 0.9);
+    }
+    100%
+    {
+        transform: translateY(-24px) scale(1,1);
+    }
+}
+.GiftBox.active
+{
+    animation: none;
+}
+
+.GiftBox::before
+{
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px #8a115e;
+    background: #f557bb;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 300px;
+    height: 200px;
+}
+.GiftBox::after
+{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background-color: #df1d50;
+    left: 124px;
+}
+
+
+.click
+{
+    animation: boxcap 1.5s ease-in-out 2;
+    position: absolute;
+    background: rgb(255, 195, 222);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 340px;
+    height: 90px;
+    top: -90px;
+    left: -20px;
+    cursor: pointer;
+    z-index: 1;
+    transition: 2s ease;
+}
+.click.active
+{
+    transform: translateY(-200px);
+}
+
+.click::before
+{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    background-color: #df1d50;
+    left: 144px;
+    z-index: 2;
+}
+/* .click::after
+{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 0px;
+    border-bottom: 60px solid #ff1eca;
+    border-top: 60px solid #ff1eca;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    transform: rotate(-90deg);
+    top: -93px;
+    left: 136px;
+} */
+
+.GiftContaner .Shadow
+{
+    content: '';
+    position: relative;
+    width: 340px;
+    height: 40px;
+    background: #5e5a5a;
+    top: 100px;
+    border-radius: 50%;
+    left: 4px;
+    animation: BounceOut 4s ease-in-out infinite forwards;
+}
+
+.GiftContaner .Shadow.active
+{
+    animation: none;
+}
+
+@keyframes BounceOut {
+    0%
+    {
+        transform: translateY(24px);
+    }
+    50%
+    {
+        transform: translateY(0px);
+    }
+    100%
+    {
+        transform: translateY(24px);
+    }
+}
+
+.Mess
+{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #f092d7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 40px;
+    font-size: 14px;
+    color: #000000;
+    transition: 2s ease-in-out ;
+    z-index: -1;
+}
+.Mess.active
+{
+    transform: translateY(-200px);
+}
+.private
+{
+    font-size: 4px;
+    opacity: 40%;
+}
+
+.Tape, .Tape-Left, .Tape-Center ,.Tape-Right
+{
+    position: absolute;
+}
+.Tape-Left, .Tape-Center ,.Tape-Right
+{
+    background: #c80337;
+}
+
+.Tape
+{
+    animation: bTape 1.5s ease-in-out 2;
+    width: 3.2em;
+    height: 2em;
+    left: 143px;
+    bottom: 5.5em;
+    transform-origin: 50% 230%;
+    z-index: 2;
+}
+.Tape-Center
+{
+    border-radius: 40%;
+    width: 100%;
+    height: 100%;
+}
+
+.Tape-Left, .Tape-Right
+{
+    box-shadow: 0 0 0 0.7em #df1d50 inset;
+    top: 0.3 em;
+    width: 4em;
+    height: 5em;
+    z-index: -1;
+}
+.Tape-Left::before, .Tape-Right::before
+{
+    background-color: #e62558;
+    border-radius: inherit;
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+.Tape-Left
+{
+    animation: bLeft 1.5s ease-in-out 2;
+    border-radius: 1.5em 0 3em 1em / 1.5em 0 3em 3.5em;
+    right: calc(100% - 0.75em);
+    transform: rotate(35deg);
+    transform-origin: 100% 15%;
+}
+.Tape-Left::before
+{
+    clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+}
+.Tape-Right
+{
+    animation: bRight 1.5s ease-in-out 2;
+    border-radius: 0 1.5em 1em 3em / 0 1.5em 3.5em 3em;
+    left: calc(100% -0.75em);
+    transform: rotate(-35deg);
+    transform-origin: 0 15%;
+    left: 2.45em;
+}   
+.Tape-Right::before
+{
+    clip-path: polygon(0 12%, 100% 42%, 100% 100%, 0 100%);
+}
+
+@keyframes bTape
+{
+    from,
+    50%
+    {transform: translateY(0) rotate(0);}
+    62.5%
+    {transform: translateY(75%) rotate(0);}
+    68.75%
+    {transform: translateY(-37.5%) rotate(15deg);}
+    75%
+    {transform: translateY(-150%) rotate(5deg);}
+    87.5%
+    {transform: translateY(65%) rotate(-3deg);}
+    to
+    {transform: translateY(0) rotate(0);}
+}
+@keyframes bLeft
+{
+    from,
+    50%
+    {transform: rotate(35deg);}
+    62.5%
+    {transform: rotate(45%);}
+    75%
+    {transform: rotate(30%);}
+    87.5%
+    {transform: rotate(45%);}
+    to
+    {transform: rotate(35deg);}
+}
+
+@keyframes bRight
+{
+    from,
+    50%
+    {transform: rotate(-35deg);}
+    62.5%
+    {transform: rotate(-45%);}
+    75%
+    {transform: rotate(-35%);}
+    87.5%
+    {transform: rotate(-45%);}
+    to
+    {transform: rotate(-35deg);}
+}
+@keyframes boxcap
+{
+    from,
+    50%
+    {transform: translateY(0) scale(1,1);}
+    62.5%
+    {transform: translateY(4%) scale(1.12, 0.89);}
+    75%
+    {transform: translateY(-11%) scale(0.92, 1.1);}
+    87.5%
+    {transform: translateY(0) rotate(1.05, 0.9);}
+    to
+    {transform: translateY(0) scale(1,1);}
+}
+
+.box-star
+{
+    position: absolute;
+    animation: starRotate 1.5s ease-in-out infinite;
+    background-color: #fcff50;
+    clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+    transform: scale(0);
+}
+.box-star-2, .box-star-4, .box-star-5
+{
+    animation-name: starRotate2;
+}
+
+.box-star-1
+{
+    animation-delay: calc(1.5s * 0.5);
+    bottom: 100px;
+    left: 12.5em;
+    width: 3.5em;
+    height: 3.5em;
+}
+.box-star-2
+{
+    animation-delay: calc(1.5s * 0.125);
+    bottom: 100px;
+    left: 10.5em;
+    width: 3.75em;
+    height: 3.75em;
+}
+.box-star-3
+{
+    animation-delay: calc(1.5s * 0.25);
+    bottom: 200px;
+    left: 0.5em;
+    width: 2.25em;
+    height: 2.25em;
+}
+.box-star-4
+{
+    top: 10.5em;
+    bottom: 500px;
+    left: 0.5em;
+    width: 1.75em;
+    height: 1.75em;
+}
+.box-star-5
+{
+    bottom: 500px;
+    left: 3.5em;
+    width: 2.75em;
+    height: 2.75em;
+}
+@keyframes starRotate
+{
+    from
+    {
+        transform: scale(0) rotate(0);
+    }
+    25%
+    {
+        animation-timing-function: ease-out;
+        transform: scale(1) rotate(0.25turn);
+    }
+    50%,
+    to
+    {
+        transform:scale(0) rotate(0.5turn) ;
+    }
+}
+
+@keyframes starRotate2
+{
+    from
+    {
+        transform: scale(0) rotate(0);
+    }
+    25%
+    {
+        animation-timing-function: ease-out;
+        transform: scale(1) rotate(-0.25turn);
+    }
+    50%,
+    to
+    {
+        transform:scale(0) rotate(-0.5turn) ;
+    }
+}
